@@ -1,0 +1,17 @@
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\BLL.deps.json
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\BLL.dll
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\BLL.pdb
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\BE.dll
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\DAL.dll
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\BE.pdb
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\bin\Debug\net6.0\DAL.pdb
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.csproj.AssemblyReference.cache
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.AssemblyInfoInputs.cache
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.AssemblyInfo.cs
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.csproj.CoreCompileInputs.cache
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.csproj.CopyComplete
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.dll
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\refint\BLL.dll
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\BLL.pdb
+C:\Users\lean\OneDrive\Documents\repos\practice\BLL\obj\Debug\net6.0\ref\BLL.dll
