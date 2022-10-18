@@ -52,32 +52,60 @@ namespace BLL
                 return false;
             }
         }
-        public List<Person> GetPersons()
+        public DataSet GetPersons()
         {
             try
             {
                 DataSet mydataset;
                 PersonDao action = new PersonDao();
-                mydataset=action.Read();
-                if (mydataset.Tables[0].Rows.Count > 0)
-                {
-                    List<Person> persons = new List<Person>();
-                    foreach (DataRow row in mydataset.Tables[0].Rows)
-                    {
-                        Person person = new Person(row["nombre"].ToString(), row["apellido"].ToString(), int.Parse(row["dni"].ToString()), int.Parse(row["telefono"].ToString()));
-                        persons.Add(person);
-                    }
-                    return persons;
-                }
-                else
-                {
-                    return null;
-                }
+                mydataset = action.Read();
+                return mydataset;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return null;
+            }
+        }
+        public bool AddPersonD(Person req)
+        {
+            try
+            {
+                PersonDao action = new PersonDao();
+                action.DisconectedInsert(req);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+        public bool UpdatePersonD(UpdateDto req) {
+            try
+            {
+                PersonDao action = new PersonDao();
+                action.DisconectedUpdate(req);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+        public bool DeletePersonD(int dni)
+        {
+            try
+            {
+                PersonDao action = new PersonDao();
+                action.DisconectedDelete(dni);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
     }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace BE.DTO
 {
     public class UpdateDto
+    
     {
         public UpdateDto(string newdata, int dni, string type)
         {
@@ -14,7 +15,6 @@ namespace BE.DTO
             Dni = dni;
             Type = type;
         }
-
         public string Newdata { get; set; } = string.Empty;
 
         public int Dni { get; set; }
