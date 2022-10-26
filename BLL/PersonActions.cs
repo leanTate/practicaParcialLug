@@ -67,46 +67,19 @@ namespace BLL
                 return null;
             }
         }
-        public bool AddPersonD(Person req)
+        public bool AddPersonD(DataSet req)
         {
-            try
-            {
                 PersonDao action = new PersonDao();
-                action.DisconectedInsert(req);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+                return action.DisconectedInsert(req);
         }
-        public bool UpdatePersonD(UpdateDto req) {
-            try
-            {
+        public bool UpdatePersonD(DataSet req) {
                 PersonDao action = new PersonDao();
-                action.DisconectedUpdate(req);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+                return action.DisconectedUpdate(req); ;
         }
-        public bool DeletePersonD(int dni)
+        public bool DeletePersonD(DataSet req)
         {
-            try
-            {
-                PersonDao action = new PersonDao();
-                action.DisconectedDelete(dni);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+            PersonDao action = new PersonDao();
+            return action.DisconectedDelete(req);
         }
     }
 }

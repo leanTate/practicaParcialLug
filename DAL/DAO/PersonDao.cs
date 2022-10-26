@@ -95,74 +95,47 @@ namespace DAL.DAO
                 return myset;
             }
         }
-        public bool DisconectedInsert(Person req)
+        public bool DisconectedInsert(DataSet myset)
         {
             try
             {
                 //creamos los objetos dataset, data adapter, data table y sql command
-                DataSet myset = new DataSet();
                 SqlDataAdapter adapter = new SqlDataAdapter("select * from personas", ConnectionDB.Instance);
-                DataTable mytable = new DataTable("personas");
-                SqlCommand command = new SqlCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = $"insert into personas (nombre,apellido,dni,telefono) values ('{req.Name}','{req.LastName}',{req.Dni},{req.Phone})";
-                command.Connection = ConnectionDB.Instance;
-                mytable.Columns.Add("nombre", typeof(string));
-                mytable.Columns.Add("apellido", typeof(string));
-                mytable.Columns.Add("dni", typeof(int));
-                mytable.Columns.Add("telefono", typeof(int));
-                mytable.Rows.Add(req.Name, req.LastName, req.Dni, req.Phone);
-                adapter.InsertCommand = command;
-                myset.Tables.Add(mytable);
-                adapter.Update(myset, "personas");
-                new SqlCommandBuilder(adapter);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message.ToString());
-                return false;
-            }
-        }
-        public bool DisconectedUpdate(UpdateDto req)
-        {
-            try
-            {
-                DataSet myset = new DataSet();
-                SqlDataAdapter adapter = new SqlDataAdapter($"update personas set {req.Type} = '{req.Newdata}' where dni={req.Dni}", ConnectionDB.Instance);
-                adapter.Fill(myset);
-                myset.Tables[0].TableName = "personas";
-                DataTable mytable = new DataTable("personas");
-                SqlCommand command = new SqlCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = $"update personas set {req.Type} = '{req.Newdata}' where dni={req.Dni} ";
-                command.Connection = ConnectionDB.Instance;
-                adapter.UpdateCommand = command;
-                adapter.Update(myset);
-                new SqlCommandBuilder(adapter);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message.ToString());
-                return false;
-            }
-        }
-        public bool DisconectedDelete(int dni)
-        {
-            try
-            {
-                DataSet myset = new DataSet();
-                SqlDataAdapter adapter = new SqlDataAdapter($"delete from personas where dni={dni}", ConnectionDB.Instance);
-                adapter.Fill(myset);
-                myset.Tables[0].TableName = "personas";
-                SqlCommand command = new SqlCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = $"delete from personas where dni={dni}";
-                command.Connection = ConnectionDB.Instance;
-                adapter.DeleteCommand = command;
-                adapter.Update(myset);
                 SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                adapter.InsertCommand = builder.GetInsertCommand();
+                adapter.Update(myset, "personas");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return false;
+            }
+        }
+        public bool DisconectedUpdate(DataSet myset)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("select * from personas", ConnectionDB.Instance);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                adapter.UpdateCommand = builder.GetUpdateCommand();
+                adapter.Update(myset,"personas");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return false;
+            }
+        }
+        public bool DisconectedDelete(DataSet myset)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter($"select * from personas", ConnectionDB.Instance);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                adapter.DeleteCommand = builder.GetDeleteCommand();
+                adapter.Update(myset,"personas");
                 return true;
             }
             catch (Exception ex)
